@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02矩形绘制.html</title>
+</head>
+<body>
+    <canvas id="c1" width="500" height="500"></canvas>
+
+    <script>
+      // 1、找到画布
+      const canvasNode = document.getElementById("c1");
+      // 获取画笔，上下文对象
+      if (canvasNode.getContext) {
+        const ctx = canvasNode.getContext("2d");
+        // 3、绘制矩形（位置x 位置y 宽度 高度）
+        // canvas 提供了三种方法绘制矩形：
+        // fillRect(x, y, width, height)
+        // 绘制一个填充的矩形
+        // strokeRect(x, y, width, height)
+        // 绘制一个矩形的边框
+        // clearRect(x, y, width, height)
+        // 清除指定矩形区域，让清除部分完全透明。
+
+        ctx.beginPath();
+        // ctx.fillRect(50, 50, 200, 100);
+        // fillRect拆开写法
+        // 绘制一个矩形
+        ctx.rect(50, 50, 200, 100);
+        // 填充颜色
+        ctx.fill();
+        ctx.closePath();
+        
+        ctx.beginPath();
+        // ctx.strokeRect(100, 100, 200, 100);
+        // fillRect拆开写法
+        // 绘制一个矩形
+        ctx.rect(100, 100, 200, 100);
+        // 显示路径
+        ctx.stroke();
+        ctx.closePath();
+
+        let closeHeight = 0;
+        let timer = setInterval(() => {
+            closeHeight++;
+            ctx.clearRect(0, 0, canvasNode.clientWidth, closeHeight);
+            if(closeHeight >= canvasNode.height) {
+                clearInterval(timer)
+            }
+        })
+      } else {
+        console.log("当前浏览器不支持canvas 请下就最新的浏览器")
+      }
+    </script>
+</body>
+</html>

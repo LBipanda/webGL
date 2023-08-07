@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03canvas绘制圆弧与笑脸</title>
+</head>
+<body>
+    <canvas id="c1" width="600" height="400"></canvas>
+
+    <script>
+      // 1、找到画布
+      const canvasNode = document.getElementById("c1");
+      // 获取画笔，上下文对象
+      if (canvasNode.getContext) {
+        const ctx = canvasNode.getContext("2d");
+        // arc是绘制圆弧的方法
+        // ctx.arc(圆心x, 圆心y, 半径, 开始的角度, 结束的角度(逆时针还是顺时针,默认是顺时针false,设置顺时针的时侯为true))
+        ctx.arc(300, 200, 50, 0, Math.PI / 2, false)
+        // ctx.fill()
+        ctx.stroke()
+      } else {
+        console.log("当前浏览器不支持canvas 请下就最新的浏览器")
+      }
+    </script>
+</body>
+</html>

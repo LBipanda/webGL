@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>03canvas绘制圆弧与笑脸</title>
+  </head>
+  <body>
+    <canvas id="c1" width="600" height="400"></canvas>
+
+    <script>
+      // 1、找到画布
+      const canvasNode = document.getElementById("c1");
+      // 获取画笔，上下文对象
+      const ctx = canvasNode.getContext("2d");
+      // 绘制笑脸
+      ctx.beginPath();
+      // 绘制一张脸
+      ctx.arc(300, 200, 50, 0, Math.PI * 2);
+      ctx.stroke()
+      ctx.closePath();
+
+      ctx.beginPath();
+      // 绘制嘴巴
+      ctx.arc(300, 200, 35, 0, Math.PI);
+      ctx.stroke()
+      ctx.closePath();
+      
+      ctx.beginPath();
+      // 绘制左眼
+      ctx.arc(280, 190, 5, 0, Math.PI * 2);
+      ctx.stroke()
+      ctx.closePath();
+
+      ctx.beginPath();
+      // 绘制右眼
+      ctx.arc(320, 190, 5, 0, Math.PI * 2);
+      ctx.stroke()
+      ctx.closePath();
+    </script>
+  </body>
+</html>
