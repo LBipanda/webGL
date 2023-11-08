@@ -16,8 +16,9 @@
         // 获取画笔, 上下文对象
         const ctx = canvasNode.getContext("2d");
         // 第一点
-        ctx.moveTo(300, 200);
-        ctx.bezierCurveTo(150, 300, 150, 200);
+        ctx.moveTo(300, 100);
+        ctx.bezierCurveTo(400, 50, 400, 200, 300, 250);
+        ctx.bezierCurveTo(200, 200, 200, 50, 300, 100);
        
         ctx.stroke()
         ctx.closePath();
